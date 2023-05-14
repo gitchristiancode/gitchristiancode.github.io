@@ -1,0 +1,230 @@
+:root {
+  --main: #060818;
+  --accent: #ff9900;
+  --footer: #d6d6d6;
+
+  --img-height: 600px;
+  --nav-height: 56px;
+
+  --seperator: "✧";
+}
+
+@font-face {
+  font-family: "Book Antiqua";
+  src: url("../fonts/antiqua.ttf");
+}
+
+@font-face {
+  font-family: "Book Antiqua";
+  src: url("../fonts/antiqua-bold.ttf");
+  font-weight: bold;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+  
+  font-family: "Book Antiqua";
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30pt;
+}
+
+p {
+  font-size: 12pt;
+}
+
+main {
+  height: 100%;
+  flex: 1 0 auto;
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: palevioletred;
+}
+
+#home-image {
+  position: sticky;
+  box-sizing: border-box;
+  clear: both;
+  top: 0;
+  right: 0;
+  z-index: -2;
+  width: 100%;
+  height: var(--img-height);
+  overflow: hidden;
+}
+
+#home-image #home-title {
+  position: absolute;
+  background-attachment: fixed;
+  background-image: linear-gradient(90deg, #02040f, #02040f00);
+  width: 100%;
+  height: 100%;
+}
+
+#home-image #home-title span {
+  z-index: 3;
+  color: white;
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  right: 50%;
+  width: 600px;
+  height: auto;
+}
+
+#home-image #home-title span h1 {
+  font-size: 50pt;
+  color: white;
+}
+
+#home-image img {
+  position: relative;
+  z-index: -3;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-image: url("images/home.jpg");
+  user-select: none;
+}
+
+#content {
+  height: 100%;
+  padding-top: 4em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 9999;
+  border-top: 3pt solid var(--accent);
+}
+
+#content::after {
+  color: var(--accent);
+  content: var(--seperator);
+  margin-top: 1em;
+}
+
+#navbar {
+  position: fixed;
+  height: auto;
+  width: 100%;
+  color: white;
+  background-color: var(--main);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#navbar div {
+  display: flex;
+  width: 5em;
+  height: var(--nav-height);
+  align-items: center;
+  justify-content: center;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#navbar div a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+#navbar div:not(.divider):hover {
+  background-color: rgba(255, 255, 255, 0.226);
+}
+
+#navbar .navbar-wide {
+  width: 12em;
+  font-weight: bold;
+}
+
+#navbar .divider {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar .divider::after {
+  content: var(--seperator);
+}
+
+@media screen and (max-width: 500px) {
+  :root {
+    --nav-height: 160px;
+  }
+  #navbar {
+    flex-direction: column;
+    height: var(--nav-height);
+  }
+
+  #navbar div {
+    width: 100%;
+  }
+
+  #navbar .navbar-wide {
+    width: 100%;
+  }
+
+  #navbar .divider {
+    width: 0;
+    height: 0;
+  }
+
+  #navbar .divider::after {
+    content: "";
+  }
+}
+
+#footer {
+  position: relative;
+  bottom: 0;
+  background-color: var(--footer);
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--nav-height);
+  margin-top: 15em;
+}
+
+#footer div {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.heading {
+  border-bottom: var(--accent) solid 2px;
+  margin-bottom: 1em;
+}
+
+.blob {
+  width: min(35em, 95%);
+}
